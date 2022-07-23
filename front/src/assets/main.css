@@ -1,0 +1,36 @@
+
+
+.light {
+  --bg1: #cccccc;
+
+  --font1: #000000;
+
+  --shadow1: #858585;
+
+  --menuBg1: #f3f3f3;
+
+  --swContainer: #d1d1d1;
+  --swBullet: #ffffff;
+
+  --menuBullet: #ffffff;
+
+  transition: 0.25s;
+}
+
+
+.dark {
+  --bg1: #313131;
+  
+  --font1: #ffffff;
+  
+  --shadow1: #000000;
+
+  --menuBg1: #555555;
+  
+  --swContainer: #141414;
+  --swBullet: #cfcfcf;
+
+  --menuBullet: #cfcfcf;
+
+  transition: 0.25s;
+}
