@@ -89,8 +89,6 @@ const buttons: Item[] = [
   --base_6 : calc(var(--base)/6);
   --base_8 : calc(var(--base)/8);
 
-  --count: 4;
-
   --w: calc(var(--base)*8);
   --h: calc(var(--base)*2.5*
     (var(--count) + 1));
