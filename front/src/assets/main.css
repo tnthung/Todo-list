@@ -3,7 +3,7 @@
 .light {
   --bg1: #cccccc;
 
-  --font1: #000000;
+  --fontColor1: #000000;
 
   --shadow1: #858585;
 
@@ -22,7 +22,7 @@
 .dark {
   --bg1: #313131;
   
-  --font1: #ffffff;
+  --fontColor1: #ffffff;
   
   --shadow1: #000000;
 
