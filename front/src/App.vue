@@ -24,11 +24,11 @@ addEventListener("resize", () => place());
 
 <template>
   <div id="page" :class="darkmode.class">
+    <router-view class="main"/>
     <MenuComponent 
       :style="`--x: ${x}px; --y: ${y}px;`"
       class="menu"
     />
-    <router-view />
   </div>
 </template>
 
@@ -49,6 +49,11 @@ addEventListener("resize", () => place());
   position: absolute;
   top : var(--y);
   left: var(--x);
+}
+
+.main {
+  position: absolute;
+  inset: 0 0 0 0;
 }
 
 </style>
