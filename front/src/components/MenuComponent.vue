@@ -6,10 +6,8 @@ import useDarkmode       from "../stores/darkmode";
 import SwitchComponent   from "./SwitchComponent.vue";
 import MenuItemComponent from "./MenuItemComponent.vue";
 
-
-const open  = ref(false);
-const dark  = useDarkmode();
-const image = ref("../greenGuy.png");
+const open = ref(false);
+const dark = useDarkmode();
 
 type Item = {
   to?: string;
@@ -19,24 +17,19 @@ type Item = {
   text: string;
 };
 
-const buttons: Item[] = [
-  {
-    to  : "/",
-    icon: "fa-solid fa-gear",
-    text: "Settings",
-  },
-  {
-    to  : "/",
-    icon: "fa-solid fa-folder",
-    text: "My projects",
-  },
-];
+const {
+  image,
+  items,
+} = defineProps<{
+  image?: string;
+  items?: Item[];
+}>();
 
 </script>
 
 
 <template>
-  <div class="menuComponent" :style="`--count: ${buttons.length}`">
+  <div class="menuComponent" :style="`--count: ${items?.length ?? 0}`">
     <div class="container">
       <transition name="menu">
         <div class="menu" v-if="open">
@@ -51,19 +44,19 @@ const buttons: Item[] = [
 
           <div class="items">
             <MenuItemComponent
-              v-for="button in buttons"
+              v-for="item in items"
               base="25px"
-              :to   ="button.to"
-              :icon ="button.icon"
-              :text ="button.text"
-              @click="button.do?.()"
+              :to   ="item.to"
+              :icon ="item.icon"
+              :text ="item.text"
+              @click="item.do?.()"
             />
           </div>
         </div>
       </transition>
 
       <img 
-        :src="image"
+        :src="image?.length !== 0 ? image : '../greenGuy.png'"
         @click="open=!open"
 
         alt="Avatar"
