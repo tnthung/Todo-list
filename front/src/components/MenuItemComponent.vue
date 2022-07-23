@@ -45,7 +45,7 @@ const { base, icon, text, to } =
 
   border-radius: var(--base);
 
-  background-color: var(--bg1);
+  background-color: var(--menuContainer);
 
   filter: drop-shadow(0 0 calc(var(--base)/7) var(--shadow1));
 

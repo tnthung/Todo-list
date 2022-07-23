@@ -9,10 +9,11 @@
 
   --menuBg1: #f3f3f3;
 
-  --swContainer: #d1d1d1;
   --swBullet: #ffffff;
+  --swContainer: #cccccc;
 
   --menuBullet: #ffffff;
+  --menuContainer: #cccccc;
 
   transition: 0.25s;
 }
@@ -27,10 +28,11 @@
 
   --menuBg1: #555555;
   
-  --swContainer: #141414;
   --swBullet: #cfcfcf;
+  --swContainer: #313131;
 
   --menuBullet: #cfcfcf;
+  --menuContainer: #313131;
 
   transition: 0.25s;
 }
