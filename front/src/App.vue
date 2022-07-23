@@ -30,10 +30,7 @@ const y = ref(15);
 
 #page {
   position: absolute;
-  top   : 0px;
-  left  : 0px;
-  right : 0px;
-  bottom: 0px;
+  inset: 0 0 0 0;
 
   font-family: 'Roboto', sans-serif;
   color: var(--font1);
