@@ -1,4 +1,23 @@
 <script setup lang="ts">
+/** 
+ * Fields:
+ *   store:
+ *     The pinia store which MUST containing `toggle` action 
+ *     and `value` state to make the it work.
+ * 
+ *   height:
+ *     The base unit of whole button, the height should be
+ *     CSS style ex: `10px`, `2rem`.
+ * 
+ *   iconOn:
+ *     The icon code of the service you are using. This icon
+ *     will be shown when switch is on.
+ * 
+ *   iconOn:
+ *     The icon code of the service you are using. This icon
+ *     will be shown when switch is off.
+ * 
+*/
 
 const { store, iconOn, iconOff, height } =
   defineProps(["store", "height", "iconOn", "iconOff"]);
