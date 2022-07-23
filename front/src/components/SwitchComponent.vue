@@ -7,13 +7,11 @@ const { store, iconOn, iconOff, height } =
 
 
 <template>
-  <div class="switchComponent">
-    <div class="container" :style="`--h: ${height};`" @click="store.toggle">
-      <div :class="`${store.value ? 'on' : ''} bullet`" />
-      <div class="iconContainer">
-        <i :class="`${iconOff} left`" />
-        <i :class="`${iconOn} right`" />
-      </div>
+  <div class="switchComponent" :style="`--h: ${height};`" @click="store.toggle">
+    <div :class="`${store.value ? 'on' : ''} bullet`" />
+    <div class="iconContainer">
+      <i :class="`${iconOff} left`" />
+      <i :class="`${iconOn} right`" />
     </div>
   </div>
 </template>
@@ -21,7 +19,7 @@ const { store, iconOn, iconOff, height } =
 
 <style scoped>
 
-.switchComponent .container {
+.switchComponent {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -39,6 +37,10 @@ const { store, iconOn, iconOff, height } =
 
   width: var(--w);
   height: var(--h);
+}
+
+.switchComponent:hover {
+  filter: drop-shadow(0 0 calc(var(--p)*1.5) var(--shadow1));
 }
 
 .switchComponent .bullet {
