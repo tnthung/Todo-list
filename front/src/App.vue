@@ -7,10 +7,17 @@ import MenuComponent from "./components/MenuComponent.vue";
 
 const darkmode = useDarkmode();
 
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+const x = ref(0);
+const y = ref(0);
 
-const x = ref(vw-215);
-const y = ref(15);
+const place = () => {
+  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  x.value = vw-215;
+  y.value = 15;
+};
+
+place();
+addEventListener("resize", () => place());
 
 </script>
 
