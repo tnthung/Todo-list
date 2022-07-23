@@ -7,11 +7,13 @@ const { store, iconOn, iconOff, height } =
 
 
 <template>
-  <div class="container" :style="`--h: ${height};`" @click="store.toggle">
-    <div :class="`${store.value ? 'on' : ''} bullet`" />
-    <div class="iconContainer">
-      <i :class="`${iconOff} left`" />
-      <i :class="`${iconOn} right`" />
+  <div class="switchComponent">
+    <div class="container" :style="`--h: ${height};`" @click="store.toggle">
+      <div :class="`${store.value ? 'on' : ''} bullet`" />
+      <div class="iconContainer">
+        <i :class="`${iconOff} left`" />
+        <i :class="`${iconOn} right`" />
+      </div>
     </div>
   </div>
 </template>
@@ -19,7 +21,7 @@ const { store, iconOn, iconOff, height } =
 
 <style scoped>
 
-.container {
+.switchComponent .container {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -39,7 +41,7 @@ const { store, iconOn, iconOff, height } =
   height: var(--h);
 }
 
-.bullet {
+.switchComponent .bullet {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -57,11 +59,11 @@ const { store, iconOn, iconOff, height } =
   transition: 250ms;
 }
 
-.bullet.on {
+.switchComponent .bullet.on {
   transform: translateX(calc(var(--h)*0.8));
 }
 
-.iconContainer {
+.switchComponent .iconContainer {
   position: absolute;
 
   margin: var(--p2);
@@ -74,7 +76,7 @@ const { store, iconOn, iconOff, height } =
   align-items: center;
 }
 
-.iconContainer i {
+.switchComponent .iconContainer i {
   width: var(--f);
   height: var(--f);
 
@@ -84,11 +86,11 @@ const { store, iconOn, iconOff, height } =
   color: var(--swContainer);
 }
 
-.left {
+.switchComponent .left {
   padding-left: calc(var(--h)*0.05);
 }
 
-.right {
+.switchComponent .right {
   position: absolute;
   right: 0px;
 
