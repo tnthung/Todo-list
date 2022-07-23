@@ -24,6 +24,8 @@ const { store, iconOn, iconOff, height } =
   top: 0px;
   left: 0px;
 
+  cursor: pointer;
+
   background-color: var(--swContainer);
 
   --w: calc(var(--h)*1.8);
