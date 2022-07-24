@@ -63,7 +63,7 @@ const clickOutside = () => {
 </template>
 
 
-<style scoped>
+<style lang="scss" scoped>
 .light .menuComponent {
   --menuColor: #ffffff;
   --overlayColor: black;
@@ -83,179 +83,162 @@ const clickOutside = () => {
 }
 
 .menuComponent {
-  --base: 30px;
+  $base: 30px;
 
-  --base2: calc(var(--base) * 2);
-  --base8: calc(var(--base) * 8);
+  @function base($scale: 1) {
+    @return calc($base * $scale);
+  }
 
-  --base0-1: calc(var(--base) * 0.1);
-  --base0-5: calc(var(--base) * 0.5);
-  --base1-5: calc(var(--base) * 1.5);
-  --base1-8: calc(var(--base) * 1.8);
-  --base7-5: calc(var(--base) * 7.5);
+  .outside {
+    position: absolute;
+    top: -100vh;
+    left: -100vw;
 
-  --base0-15: calc(var(--base) * 0.15);
-  --base0-25: calc(var(--base) * 0.25);
+    width: 200vw;
+    height: 200vh;
 
-  --base0-125: calc(var(--base) * 0.125);
+    opacity: 0.25;
+    background-color: var(--overlayColor);
+  }
 
-  --base-1: calc(var(--base) * -1);
+  /* Item */
 
-  --base-0-5: calc(var(--base) * -0.5);
+  .menu {
+    position: absolute;
+    top: base(-0.25);
+    right: base(-1.75);
 
-  --base-0-25: calc(var(--base) * -0.25);
-  --base-1-75: calc(var(--base) * -1.75);
-}
+    width: base(8);
+    height: calc(base(2) * (var(--count) + 1) + base(0.15));
 
-.menuComponent .outside {
-  position: absolute;
-  top: -100vh;
-  left: -100vw;
+    filter: drop-shadow(0 0 base(0.125) var(--shadow1));
 
-  width: 200vw;
-  height: 200vh;
+    border-radius: base();
 
-  opacity: 0.25;
-  background-color: var(--overlayColor);
-}
+    overflow: hidden;
 
-/* Item */
+    background-color: var(--menuColor);
+  }
 
-.menuComponent .menu {
-  position: absolute;
-  top: var(--base-0-25);
-  right: var(--base-1-75);
+  .itemContainer {
+    position: absolute;
+    top: base(2);
+    left: 0px;
 
-  width: var(--base8);
-  height: calc(var(--base2) * (var(--count) + 1) + var(--base0-15));
+    width: base(8);
+    height: calc(base(2) * var(--count));
 
-  filter: drop-shadow(0 0 var(--base0-125) var(--shadow1));
+    display: flex;
+    flex-direction: column;
+  }
 
-  border-radius: var(--base);
+  .item {
+    position: relative;
 
-  overflow: hidden;
+    width: base(7.5);
+    height: base(1.8);
+    margin: auto base(0.25);
 
-  background-color: var(--menuColor);
-}
+    display: flex;
 
-.menuComponent .itemContainer {
-  position: absolute;
-  top: var(--base2);
-  left: 0px;
+    border-radius: base();
 
-  width: var(--base8);
-  height: calc(var(--base2) * var(--count));
+    background-color: var(--itemColor);
 
-  display: flex;
-  flex-direction: column;
-}
+    transition: 0.25s;
 
-.menuComponent .item {
-  position: relative;
+    cursor: pointer;
 
-  width: var(--base7-5);
-  height: var(--base1-8);
-  margin: auto var(--base0-25);
+    &:hover {
+      filter: drop-shadow(0 0 base(0.125) var(--shadow1));
+    }
+  }
 
-  display: flex;
+  /* Icon */
 
-  border-radius: var(--base);
+  .iconContainer {
+    position: relative;
 
-  background-color: var(--itemColor);
+    width: base(1.8);
+    height: base(1.8);
 
-  transition: 0.25s;
+    font-size: base();
 
-  cursor: pointer;
-}
+    margin: 0 base(0.125);
+  }
 
-.menuComponent .item:hover {
-  filter: drop-shadow(0 0 var(--base0-125) var(--shadow1));
-}
+  .icon {
+    position: absolute;
+    inset: 0 0 0 0;
 
-/* Icon */
+    margin: auto;
 
-.menuComponent .iconContainer {
-  position: relative;
+    line-height: base(1.8);
+    text-align: center;
 
-  width: var(--base1-8);
-  height: var(--base1-8);
+    color: var(--iconColor);
+  }
 
-  font-size: var(--base);
+  /* Text */
 
-  margin: 0 var(--base0-125);
-}
+  .text {
+    position: relative;
 
-.menuComponent .icon {
-  position: absolute;
-  inset: 0 0 0 0;
+    line-height: base(1.8);
 
-  margin: auto;
+    font-size: base(0.75);
+    color: var(--fontColor);
+  }
 
-  line-height: var(--base1-8);
-  text-align: center;
+  /* Avatar */
 
-  color: var(--iconColor);
-}
+  .avatar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
 
-/* Text */
+    width: base(1.5);
+    height: base(1.5);
 
-.menuComponent .text {
-  position: relative;
+    outline: 3px solid var(--avatarBorder);
 
-  line-height: var(--base1-8);
+    border-radius: base();
 
-  font-size: calc(var(--base)*0.75);
-  color: var(--fontColor);
-}
+    transition: 0.05s;
 
-/* Avatar */
+    cursor: pointer;
 
-.menuComponent .avatar {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+    &:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 base(0.125) var(--shadow1));
+    }
+  }
 
-  width: var(--base1-5);
-  height: var(--base1-5);
+  .menu-enter-active,
+  .menu-leave-active {
+    transition: 0.25s;
+  }
 
-  outline: 3px solid var(--avatarBorder);
+  .menu-enter-from,
+  .menu-leave-to {
+    transform: translate(base(-1), base());
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
 
-  border-radius: var(--base);
+  /* Switch */
 
-  transition: 0.05s;
+  .switch {
+    position: absolute;
+    top: base(0.5);
+    left: base(0.5);
+  }
 
-  cursor: pointer;
-}
+  /* ------ */
 
-.menuComponent .avatar:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 var(--base0-125) var(--shadow1));
-}
-
-.menuComponent .menu-enter-active,
-.menuComponent .menu-leave-active {
-  transition: 0.25s;
-}
-
-.menuComponent .menu-enter-from,
-.menuComponent .menu-leave-to {
-  transform: translate(var(--base-1), var(--base));
-  opacity: 0;
-  width: 0px;
-  height: 0px;
-}
-
-/* Switch */
-
-.menuComponent .switch {
-  position: absolute;
-  top: var(--base0-5);
-  left: var(--base0-5);
-}
-
-/*  */
-
-a {
-  all: unset;
+  a {
+    all: unset;
+  }
 }
 </style>
