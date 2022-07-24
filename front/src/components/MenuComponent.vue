@@ -1,4 +1,13 @@
 <script setup lang="ts">
+/**
+ *  Fields:
+ *    image:
+ *      The image of the user avatar.
+ * 
+ *    items:
+ *      The items of the menu with given props.
+ */
+
 import { ref } from "vue";
 
 import useDarkmode from "../stores/darkmode";
