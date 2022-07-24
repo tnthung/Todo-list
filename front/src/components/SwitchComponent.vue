@@ -95,7 +95,7 @@ const { store, iconOn, iconOff, height } =
     border-radius: base();
     background-color: var(--containerColor);
 
-    transition: 0.25s;
+    transition: 0.15s;
   }
 
   .bullet {
@@ -106,7 +106,7 @@ const { store, iconOn, iconOff, height } =
     border-radius: base();
     background-color: var(--bulletColor);
 
-    transition: 0.25s;
+    transition: 0.15s;
   }
 
   .bullet.on {
@@ -132,7 +132,7 @@ const { store, iconOn, iconOff, height } =
       text-align: center;
       line-height: base(0.8);
 
-      transition: 0.25s;
+      transition: 0.15s;
     }
   }
 }
