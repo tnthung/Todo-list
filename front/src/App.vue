@@ -1,7 +1,10 @@
 <script setup lang="ts">
 
 import { useRouter } from "vue-router";
-import useDarkmode from "./stores/darkmode";
+
+import useDarkmode from "@/stores/darkmode";
+
+
 const darkmode = useDarkmode();
 
 const router = useRouter();
@@ -13,7 +16,10 @@ router.push({
 
 
 <template>
-  <router-view :class="darkmode.class" id="page" />
+  <router-view
+    :class="`${darkmode.class}`"
+    id="page"
+  />
 </template>
 
 
