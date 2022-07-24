@@ -16,7 +16,19 @@
  *    iconOn:
  *      The icon code of the service you are using. This icon
  *      will be shown when switch is off.
- *  
+ * 
+ *  Style:
+ *    --iconColor:
+ *      The color of the icon on both ends.
+ * 
+ *    --shadowColor:
+ *      The shadow color of the button body when hovering.
+ * 
+ *    --bulletColor:
+ *      The color of the bullet.
+ * 
+ *    --containerColor:
+ *      The color of the switch body.
 */
 
 import type { Store } from 'pinia';
