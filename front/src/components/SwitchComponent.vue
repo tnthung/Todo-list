@@ -61,19 +61,17 @@ const { store, iconOn, iconOff, height } =
 
 .light {
   .switchComponent {
-    --containerColor: #{hslColor(50)};
     --iconColor: var(--containerColor);
     --shadowColor: var(--shadowColor1);
     --bulletColor: var(--bgColor1);
+    --containerColor: var(--bgColor2);
   }
 }
 
 .dark {
   @extend .light;
 
-  .switchComponent {
-    --containerColor: #{hslColor(75)};
-  }
+  .switchComponent {}
 }
 
 .switchComponent {
