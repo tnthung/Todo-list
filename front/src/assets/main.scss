@@ -12,6 +12,15 @@
 }
 
 
+@mixin unButton {
+  button {
+    border: none;
+    padding: unset;
+    background: none;
+  }
+}
+
+
 @function hslColor($lightness, $hue: 0, $saturation: 0%) {
   @return hsl($hue, $saturation, $lightness);
 }
