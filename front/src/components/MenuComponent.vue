@@ -57,7 +57,7 @@ const clickOutside = () => {
       </transition>
 
       <!-- the avatar of the user -->
-      <img class="avatar" :src="image || '../../greenGuy.png'" @click.stop="opened = !opened" />
+      <img class="avatar" :src="image || '../../greenGuy.png'" alt="Avatar" @click.stop="opened = !opened" />
     </div>
   </div>
 </template>
