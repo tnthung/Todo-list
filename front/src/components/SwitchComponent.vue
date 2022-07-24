@@ -53,6 +53,7 @@ const { store, iconOn, iconOff, height } =
 <template>
   <button
     class="switchComponent"
+    type="button"
     :style="`--base: ${height};`"
     @click="store?.toggle"
   >
