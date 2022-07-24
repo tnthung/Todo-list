@@ -9,6 +9,11 @@
 }
 
 
+.monoFont {
+  font-family: 'Roboto Mono', monospace !important;
+}
+
+
 .light {
   --fontColor1: #{hslColor(0)};
   --fontColor2: #{hslColor(20)};

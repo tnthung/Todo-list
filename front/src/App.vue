@@ -27,7 +27,7 @@ router.push({
 
 <style scoped lang="scss">
 #page {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   background-color: var(--bgColor1);
 }
 </style>
