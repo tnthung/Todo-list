@@ -1,22 +1,3 @@
-.light {
-  --fontColor1: #575757;
-
-  --bgColor1: #cccccc;
-
-  --shadowColor1: #858585;
-}
-
-
-.dark {
-  @extend .light;
-  --fontColor1: #d3d3d3;
-
-  --bgColor1: #313131;
-
-  --shadowColor1: #000000;
-}
-
-
 @mixin dim($width: 0, $height: 0) {
   width: $width;
   height: $height;
@@ -25,4 +6,33 @@
 
 @function hslColor($lightness, $hue: 0, $saturation: 0%) {
   @return hsl($hue, $saturation, $lightness);
+}
+
+
+.light {
+  --fontColor1: #{hslColor(0)};
+  --fontColor2: #{hslColor(20)};
+
+  --bgColor1: #{hslColor(80)};
+  --bgColor2: #{hslColor(60)};
+
+  --shadowColor1: #{hslColor(15)};
+}
+
+
+.dark {
+  @extend .light;
+  --fontColor1: #{hslColor(80)};
+  --fontColor2: #{hslColor(60)};
+
+  --bgColor1: #{hslColor(25)};
+  --bgColor2: #{hslColor(55)};
+
+  --shadowColor1: #{hslColor(0)};
+}
+
+
+.reduced * {
+  animation: none !important;
+  transition: none !important;
 }
