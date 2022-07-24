@@ -96,6 +96,10 @@ const { store, iconOn, iconOff, height } =
     background-color: var(--containerColor);
 
     transition: 0.15s;
+
+    &:hover {
+      box-shadow: 0 0 5px var(--shadowColor);
+    }
   }
 
   .bullet {
