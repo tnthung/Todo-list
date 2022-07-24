@@ -3,18 +3,7 @@
 
   --bgColor1: #cccccc;
 
-
-  --bg1: #cccccc;
-
-
   --shadowColor1: #858585;
-  --shadow1: #858585;
-
-
-  --swBullet: #ffffff;
-  --swContainer: #cccccc;
-
-  transition: 0.25s;
 }
 
 
@@ -24,16 +13,16 @@
 
   --bgColor1: #313131;
 
-
-  --bg1: #313131;
-
-
   --shadowColor1: #000000;
-  --shadow1: #000000;
+}
 
 
-  --swBullet: #cfcfcf;
-  --swContainer: #313131;
+@mixin dim($width: 0, $height: 0) {
+  width: $width;
+  height: $height;
+}
 
-  transition: 0.25s;
+
+@function hslColor($lightness, $hue: 0, $saturation: 0%) {
+  @return hsl($hue, $saturation, $lightness);
 }
