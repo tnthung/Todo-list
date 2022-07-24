@@ -20,6 +20,6 @@ router.push({
 <style scoped lang="scss">
 #page {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--bg1);
+  background-color: var(--bgColor1);
 }
 </style>
