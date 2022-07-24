@@ -3,9 +3,11 @@
 import { useRouter } from "vue-router";
 
 import useDarkmode from "@/stores/darkmode";
+import useReduceMotion from "@/stores/reduceMotion";
 
 
 const darkmode = useDarkmode();
+const reduceMotion = useReduceMotion();
 
 const router = useRouter();
 router.push({
@@ -17,7 +19,7 @@ router.push({
 
 <template>
   <router-view
-    :class="`${darkmode.class}`"
+    :class="`${darkmode.class} ${reduceMotion.class}`"
     id="page"
   />
 </template>
