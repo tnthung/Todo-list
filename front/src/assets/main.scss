@@ -1,38 +1,39 @@
-
-
 .light {
+  --fontColor1: #575757;
+
+  --bgColor1: #cccccc;
+
+
   --bg1: #cccccc;
 
-  --fontColor1: #000000;
 
+  --shadowColor1: #858585;
   --shadow1: #858585;
 
-  --menuBg1: #f3f3f3;
 
   --swBullet: #ffffff;
   --swContainer: #cccccc;
-
-  --menuBullet: #ffffff;
-  --menuContainer: #cccccc;
 
   transition: 0.25s;
 }
 
 
 .dark {
+  @extend .light;
+  --fontColor1: #d3d3d3;
+
+  --bgColor1: #313131;
+
+
   --bg1: #313131;
-  
-  --fontColor1: #ffffff;
-  
+
+
+  --shadowColor1: #000000;
   --shadow1: #000000;
 
-  --menuBg1: #555555;
-  
+
   --swBullet: #cfcfcf;
   --swContainer: #313131;
-
-  --menuBullet: #cfcfcf;
-  --menuContainer: #313131;
 
   transition: 0.25s;
 }
