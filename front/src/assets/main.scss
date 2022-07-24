@@ -1,6 +1,14 @@
-@mixin dim($width: 0, $height: 0) {
+@mixin dim($width, $height: "") {
   width: $width;
-  height: $height;
+
+  @if $height  !="" {
+    height: $height;
+  }
+
+  @else {
+    height: $width;
+  }
+
 }
 
 
