@@ -28,4 +28,5 @@
 **/.pnpm-*
 **/node_modules/
 **/dist/
+**/_*
 
