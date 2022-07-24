@@ -64,22 +64,27 @@ const clickOutside = () => {
 
 
 <style lang="scss" scoped>
-.light .menuComponent {
-  --menuColor: #ffffff;
-  --overlayColor: black;
-  --itemColor: #cccccc;
-  --avatarBorder: #8b8b8b;
-  --iconColor: #8b8b8b;
-  --fontColor: #8b8b8b;
+.light {
+  .menuComponent {
+    --overlayColor: black;
+
+    --itemColor: var(--bgColor1);
+    --fontColor: var(--fontColor1);
+    --menuColor: var(--bgColor1);
+    --shadowColor: var(--shadowColor1);
+
+    --avatarBorder: #a0a0a0;
+
+    --iconColor: #9e9e9e;
+  }
 }
 
-.dark .menuComponent {
-  --menuColor: #000000;
-  --overlayColor: white;
-  --itemColor: #444444;
-  --avatarBorder: #000000;
-  --iconColor: #444444;
-  --fontColor: #444444;
+.dark {
+  @extend .light;
+
+  .menuComponent {
+    --overlayColor: white;
+  }
 }
 
 .menuComponent {
