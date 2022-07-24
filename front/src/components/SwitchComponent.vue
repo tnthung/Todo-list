@@ -19,105 +19,121 @@
  *  
 */
 
+import type { Store } from 'pinia';
+
+
 const { store, iconOn, iconOff, height } =
-  defineProps(["store", "height", "iconOn", "iconOff"]);
+  defineProps<{
+    store?: Store<
+      any,
+      { value: boolean },
+      any,
+      { toggle: () => any }
+    >,
+    height: string,
+    iconOn?: string,
+    iconOff?: string,
+  }>();
 
 </script>
 
 
 <template>
-  <div class="switchComponent" :style="`--h: ${height};`" @click="store.toggle">
-    <div :class="`${store.value ? 'on' : ''} bullet`" />
-    <div class="iconContainer">
-      <i :class="`${iconOff} left`" />
-      <i :class="`${iconOn} right`" />
+  <button
+    class="switchComponent"
+    :style="`--base: ${height};`"
+    @click="store?.toggle"
+  >
+    <div class="container">
+      <div :class="`${store?.value ? 'on' : ''} bullet`" />
+      <div class="iconContainer">
+        <i :class="`${iconOff} left`" />
+        <i :class="`${iconOn} right`" />
+      </div>
     </div>
-  </div>
+  </button>
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/assets/main.scss";
+
+
+.light {
+  .switchComponent {
+    --containerColor: #{hslColor(50)};
+    --iconColor: var(--containerColor);
+    --shadowColor: var(--shadowColor1);
+    --bulletColor: var(--bgColor1);
+  }
+}
+
+.dark {
+  @extend .light;
+
+  .switchComponent {
+    --containerColor: #{hslColor(75)};
+  }
+}
 
 .switchComponent {
+
+  @function base($scale: 1) {
+    @return calc(var(--base) * $scale)
+  }
+
   position: absolute;
-  top: 0px;
-  left: 0px;
+  background: none;
+  border: none;
+  padding: unset;
 
-  cursor: pointer;
+  .container {
+    position: relative;
+    @include dim(base(1.8), base());
 
-  background-color: var(--swContainer);
+    cursor: pointer;
+    border-radius: base();
+    background-color: var(--containerColor);
 
-  --w: calc(var(--h)*1.8);
-  --p: calc(var(--h)*0.1);
-  --p2: calc(var(--p)*2);
-  --f: calc(var(--h)*0.5);
+    transition: 0.25s;
+  }
 
-  border-radius: calc(var(--h)/2);
+  .bullet {
+    position: absolute;
+    @include dim(base(0.8), base(0.8));
+    margin: base(0.1);
 
-  filter: drop-shadow(0 0 var(--p) var(--shadow1));
+    border-radius: base();
+    background-color: var(--bulletColor);
 
-  width: var(--w);
-  height: var(--h);
+    transition: 0.25s;
+  }
+
+  .bullet.on {
+    transform: translateX(base(0.8));
+  }
+
+  .iconContainer {
+    position: absolute;
+    @include dim(base(1.6), base(0.8));
+    margin: base(0.1);
+
+    display: flex;
+    flex-direction: row;
+
+    border-radius: base();
+
+    i {
+      position: relative;
+      @include dim(base(0.8), base(0.8));
+
+      color: var(--iconColor);
+      font-size: base(0.5);
+      text-align: center;
+      line-height: base(0.8);
+
+      transition: 0.25s;
+    }
+  }
 }
-
-.switchComponent:hover {
-  filter: drop-shadow(0 0 calc(var(--p)*1.5) var(--shadow1));
-}
-
-.switchComponent .bullet {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-
-  width: calc(var(--h)*0.8);
-  height: calc(var(--h)*0.8);
-
-  background-color: var(--swBullet);
-
-  margin: var(--p);
-  border-radius: 50%;
-
-  filter: drop-shadow(0 0 calc(var(--p) * 0.2) var(--shadow1));
-
-  transition: 250ms;
-}
-
-.switchComponent .bullet.on {
-  transform: translateX(calc(var(--h)*0.8));
-}
-
-.switchComponent .iconContainer {
-  position: absolute;
-
-  margin: var(--p2);
-
-  width: calc(var(--w) - 2*var(--p2));
-  height: calc(var(--h) - 2*var(--p2));
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.switchComponent .iconContainer i {
-  width: var(--f);
-  height: var(--f);
-
-  text-align: center;
-
-  font-size: var(--f);
-  color: var(--swContainer);
-}
-
-.switchComponent .left {
-  padding-left: calc(var(--h)*0.05);
-}
-
-.switchComponent .right {
-  position: absolute;
-  right: 0px;
-
-  padding-right: calc(var(--h)*0.05);
-}
-
 </style>
