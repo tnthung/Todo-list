@@ -52,10 +52,11 @@ const { store, iconOn, iconOff, height } =
 
 <template>
   <button
-    class="switchComponent"
-    type="button"
     :style="`--base: ${height};`"
     @click="store?.toggle"
+    class="switchComponent"
+    title="switch"
+    type="button"
   >
     <div class="container">
       <div :class="`${store?.value ? 'on' : ''} bullet`" />
