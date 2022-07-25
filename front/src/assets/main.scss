@@ -13,11 +13,9 @@
 
 
 @mixin unButton {
-  button {
-    border: none;
-    padding: unset;
-    background: none;
-  }
+  border: none;
+  padding: unset;
+  background: none;
 }
 
 
@@ -32,25 +30,25 @@
 
 
 .light {
-  --fontColor1: #{hslColor(0)};
-  --fontColor2: #{hslColor(20)};
+  --fontColor1: #{hslColor(0%)};
+  --fontColor2: #{hslColor(20%)};
 
-  --bgColor1: #{hslColor(80)};
-  --bgColor2: #{hslColor(60)};
+  --bgColor1: #{hslColor(80%)};
+  --bgColor2: #{hslColor(60%)};
 
-  --shadowColor1: #{hslColor(15)};
+  --shadowColor1: #{hslColor(15%)};
 }
 
 
 .dark {
   @extend .light;
-  --fontColor1: #{hslColor(80)};
-  --fontColor2: #{hslColor(60)};
+  --fontColor1: #{hslColor(80%)};
+  --fontColor2: #{hslColor(60%)};
 
-  --bgColor1: #{hslColor(25)};
-  --bgColor2: #{hslColor(55)};
+  --bgColor1: #{hslColor(25%)};
+  --bgColor2: #{hslColor(55%)};
 
-  --shadowColor1: #{hslColor(0)};
+  --shadowColor1: #{hslColor(0%)};
 }
 
 
