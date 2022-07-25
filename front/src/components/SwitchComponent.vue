@@ -73,26 +73,18 @@ const { store, iconOn, iconOff, height } =
 @import "@/assets/main.scss";
 
 
-.light {
-  .switchComponent {
-    --iconColor: var(--containerColor);
-    --shadowColor: var(--shadowColor1);
-    --bulletColor: var(--bgColor1);
-    --containerColor: var(--bgColor2);
-  }
-}
-
-.dark {
-  @extend .light;
-
-  .switchComponent {}
-}
-
 .switchComponent {
 
   @function base($scale: 1) {
     @return calc(var(--base) * $scale)
   }
+
+  --iconColor: var(--containerColor);
+  --shadowColor: var(--shadowColor1);
+  --bulletColor: var(--bgColor1);
+  --containerColor: var(--bgColor2);
+
+  [dark=true] & {}
 
   position: absolute;
   background: none;
