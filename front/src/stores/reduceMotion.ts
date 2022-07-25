@@ -12,10 +12,6 @@ export default defineStore({
     return { value: reduce };
   },
 
-  getters: {
-    class: (s) => s.value ? "reduced" : "",
-  },
-
   actions: {
     toggle() {
       this.value = !this.value;

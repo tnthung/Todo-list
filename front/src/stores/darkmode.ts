@@ -12,10 +12,6 @@ export default defineStore({
     return { value: dark };
   },
 
-  getters: {
-    class: (s) => s.value ? "dark" : "light",
-  },
-
   actions: {
     toggle() {
       this.value = !this.value;
