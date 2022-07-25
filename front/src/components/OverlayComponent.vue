@@ -14,12 +14,12 @@
 .overlay {
   background-color: black;
 
-  .dark & {
+  [dark=true] & {
     background-color: white;
   }
 
   position: absolute;
   inset: 0px;
-  opacity: 20%;
+  opacity: 15%;
 }
 </style>
