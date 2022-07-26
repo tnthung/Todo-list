@@ -103,6 +103,8 @@ const { store, iconOn, iconOff, height } =
 
     &:hover {
       box-shadow: 0 0 5px var(--shadowColor);
+      --containerColor: var(--bgColor3);
+      --iconColor: var(--containerColor);
     }
   }
 
