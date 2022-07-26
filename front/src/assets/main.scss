@@ -19,6 +19,13 @@
 }
 
 
+@mixin unLink {
+  color: inherit;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+
 @function hslColor($lightness, $hue: 0, $saturation: 0%) {
   @return hsl($hue, $saturation, $lightness);
 }
@@ -29,12 +36,18 @@
 }
 
 
+.normFont {
+  font-family: 'Varela Round', sans-serif !important;
+}
+
+
 [dark=false] {
+  --bgColor1: #{hslColor(85%)};
+  --bgColor2: #{hslColor(65%)};
+  --bgColor3: #{hslColor(45%)};
+
   --fontColor1: #{hslColor(0%)};
   --fontColor2: #{hslColor(20%)};
-
-  --bgColor1: #{hslColor(80%)};
-  --bgColor2: #{hslColor(60%)};
 
   --shadowColor1: #{hslColor(15%)};
 }
@@ -42,11 +55,13 @@
 
 [dark=true] {
   @extend [dark=false];
+
+  --bgColor1: #{hslColor(15%)};
+  --bgColor2: #{hslColor(35%)};
+  --bgColor3: #{hslColor(55%)};
+
   --fontColor1: #{hslColor(80%)};
   --fontColor2: #{hslColor(60%)};
-
-  --bgColor1: #{hslColor(25%)};
-  --bgColor2: #{hslColor(55%)};
 
   --shadowColor1: #{hslColor(0%)};
 }
