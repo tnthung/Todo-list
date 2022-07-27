@@ -310,7 +310,7 @@ const { items, image } =
 
     .iconContainer {
       $s: 1;
-      $p: (2 - $s)/2;
+      $p: calc((2 - $s)/2);
 
       @include dim(base($s));
       margin: base($p);
