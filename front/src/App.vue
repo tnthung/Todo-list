@@ -2,10 +2,12 @@
 
 import { ref } from "vue";
 
+// store
 import useDarkmode from "@/stores/darkmode";
 import useReduceMotion from "@/stores/reduceMotion";
 
-import MenuComponent from "./components/MenuComponent.vue";
+// component
+import MenuComponent from "@/components/MenuComponent.vue";
 
 
 const darkmode = useDarkmode();
